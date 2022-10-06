@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//For login / register forms
+Route::post('/signup', [
+    'uses' => 'App\Http\Controllers\UserController@postSignUp',
+    'as' => 'signup'
+]);
+
+Route::post('/signin', [
+    'uses' => 'App\Http\Controllers\UserController@postSignin',
+    'as' => 'signin',
+]);
+
+//accessible urls
+Route::get('/', [
+    'uses' => 'App\Http\Controllers\UserController@getFeed',
+    'as' => 'feed',
+    'middleware' => 'auth'
+]);
+
+Route::get('/login', function() {
+    return view('login');
+})->name('login')->middleware('guest');
+
+Route::get('register', function() {
+    return view('signup');
+})->middleware('guest');
+
+Route::get('logout', [
+    'uses' => 'App\Http\Controllers\UserController@getLogout',
+    'as' => 'logout'
+]);
