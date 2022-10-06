@@ -9,6 +9,7 @@
 ```
 git clone https://github.com/3ddm3g/TheNeighboursRecipeBook.git
 cd TheNeighboursRecipeBook
+git switch develop
 chmod +x setup.sh
 ./setup.sh
 ```
