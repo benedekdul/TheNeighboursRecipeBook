@@ -18,6 +18,11 @@
             <label for="password">Password</label>
             <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="pw" value="{{ Request::old('password') }}">
         </div>
+        <div class="form-group mb-3">
+            <input type="checkbox" name="remember" value="1">
+            &nbsp;
+            <label for="remember">Remember me</label>
+        </div>
         <button type="submit" class="btn btn-primary">login</button>
         <input type="hidden" name="_token" value="{{ Session::token() }}">
     </form>

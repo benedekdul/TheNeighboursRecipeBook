@@ -42,13 +42,13 @@ class UserController extends Controller{
         ]);
 
         //check against username
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
             return redirect()->route('feed');
         }
         //check against email!
-        elseif (Auth::attempt(['email'=> $request->username, 'password' => $request->password])) {
+        elseif (Auth::attempt(['email' => $request->username, 'password' => $request->password], $request->remember)) {
             return redirect()->route('feed');
-        } 
+        }
 
         return redirect()->back()->withErrors(['wrongcreds' => 'Wrong username or password']);
     }
