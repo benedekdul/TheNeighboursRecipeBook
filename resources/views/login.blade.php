@@ -22,10 +22,19 @@
                 <div class="form-group first">
                   {{-- <label for="username">Username or email</label> --}}
                   <input type="text" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" placeholder="Username or email" name="username" value="{{ Request::old('username') }}">
+                  @if($errors->has('username'))
+                  @include('includes.display_errors', ['errorType' => 'username'])
+                  @endif
+                  @if($errors->has('wrongcreds'))
+                  @include('includes.display_errors', ['errorType' => 'wrongcreds'])
+                  @endif
                 </div>
                 <div class="form-group last mb-3">
                   {{-- <label for="password">Password</label> --}}
                   <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="Your Password" name="password" value="{{ Request::old('password') }}">
+                  @if($errors->has('password'))
+                  @include('includes.display_errors', ['errorType' => 'password'])
+                  @endif
                 </div>
                 <div class="d-sm-flex mb-5 align-items-center">
                   <label class="control control--checkbox mb-3 mb-sm-0"><span class="caption">Remember me</span>
