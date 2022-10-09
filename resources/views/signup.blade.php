@@ -21,20 +21,20 @@
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="form-group first">
                   {{-- <label for="username">Username or email</label> --}}
-                  <input type="text" class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" placeholder="Username..." name="username" value="{{ Request::old('username') }}">
+                  <input type="text" class="form-control {{ $errors->has('username') ? 'input-invalid' : '' }}" placeholder="Username..." name="username" value="{{ Request::old('username') }}">
                   @if($errors->has('username'))
                   @include('includes.display_errors', ['errorType' => 'username'])
                   @endif
                 </div>
                 <div class="form-group first">
-                  <input type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="E-mail address..." name="email" value="{{ Request::old('email') }}">
+                  <input type="text" class="form-control {{ $errors->has('email') ? 'input-invalid' : '' }}" placeholder="E-mail address..." name="email" value="{{ Request::old('email') }}">
                   @if($errors->has('email'))
                   @include('includes.display_errors', ['errorType' => 'email'])
                   @endif
                 </div>
                 <div class="form-group last mb-3">
                   {{-- <label for="password">Password</label> --}}
-                  <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="Your Password (must be at least 4 characters long)" name="password" value="{{ Request::old('password') }}">
+                  <input type="password" class="form-control {{ $errors->has('password') ? 'input-invalid' : '' }}" placeholder="Your Password (must be at least 4 characters long)" name="password" value="{{ Request::old('password') }}">
                   @if($errors->has('password'))
                   @include('includes.display_errors', ['errorType' => 'password'])
                   @endif

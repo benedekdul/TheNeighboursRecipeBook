@@ -42,7 +42,7 @@ body {
       .half .contents, .half .bg {
         width: 100%; } }
     .half .contents .form-control, .half .bg .form-control {
-      border: none;
+      /* border: none; */
       border-radius: 4px;
       height: 54px;
       background: #efefef; }
@@ -151,3 +151,13 @@ body {
     background-color: #7e0cf5;
     opacity: .2; }
   
+  .input-invalid{
+    border:2px solid red;
+    animation:shake 300ms
+  }
+  
+  @keyframes shake{
+    25%{transform:translateX(4px)}
+    50%{transform:translateX(-4px)}
+    75%{transform:translateX(4px)}
+  }
