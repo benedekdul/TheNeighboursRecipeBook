@@ -25,9 +25,6 @@
                   @if($errors->has('username'))
                   @include('includes.display_errors', ['errorType' => 'username'])
                   @endif
-                  @if($errors->has('wrongcreds'))
-                  @include('includes.display_errors', ['errorType' => 'wrongcreds'])
-                  @endif
                 </div>
                 <div class="form-group last mb-3">
                   {{-- <label for="password">Password</label> --}}

@@ -50,7 +50,7 @@ class UserController extends Controller{
             return redirect()->route('feed');
         }
 
-        return redirect()->back()->withErrors(['wrongcreds' => 'Wrong username or password']);
+        return redirect()->back()->withErrors(['username' => 'Wrong username or password']);
     }
 
     //HANDLE LOGOUT BUTTON
