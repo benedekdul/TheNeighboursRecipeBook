@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
     public function getFeed(){
@@ -15,20 +16,22 @@ class UserController extends Controller{
         $this->validate($request, [
             'email' => 'required|email|unique:users',
             'username' => 'required|unique:users|max:120',
-            'password' => 'required|min:4'
+            'password' => 'required|min:4',
         ]);
 
         $email = $request['email'];
         $username = $request['username'];
         $password = bcrypt($request['password']);
 
+        if(!Hash::check($request['password-again'], $password)){
+            return redirect()->route('register')->withErrors(['password-again' => "The two password fields didn't match."]);
+        }
+
         $user = new User();
         $user->email = $email;
         $user->username = $username;
         $user->password = $password;
-
         $user->save();
-
         Auth::login($user);
 
         return redirect()->route('feed');

@@ -34,9 +34,15 @@
                 </div>
                 <div class="form-group last mb-3">
                   {{-- <label for="password">Password</label> --}}
-                  <input type="password" class="form-control {{ $errors->has('password') ? 'input-invalid' : '' }}" placeholder="Your Password (must be at least 4 characters long)" name="password" value="{{ Request::old('password') }}">
+                  <input type="password" class="form-control {{ $errors->has('password') ? 'input-invalid' : '' }}" placeholder="Your password... (must be at least 4 characters long)" name="password" value="{{ Request::old('password') }}">
                   @if($errors->has('password'))
                   @include('includes.display_errors', ['errorType' => 'password'])
+                  @endif
+                </div>
+                <div class="form-group last mb-3">
+                  <input type="password" class="form-control {{ $errors->has('password-again') ? 'input-invalid' : '' }}" placeholder="Your password again..." name="password-again" value="{{ Request::old('password-again') }}">
+                  @if($errors->has('password-again'))
+                  @include('includes.display_errors', ['errorType' => 'password-again'])
                   @endif
                 </div>
                 <input type="submit" value="Create my kitchen" class="btn btn-block btn-warning">

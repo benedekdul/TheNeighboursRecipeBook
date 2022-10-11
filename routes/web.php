@@ -40,7 +40,7 @@ Route::get('/login', function() {
 
 Route::get('register', function() {
     return view('signup');
-})->middleware('guest');
+})->middleware('guest')->name('register');
 
 Route::get('logout', [
     'uses' => 'App\Http\Controllers\UserController@getLogout',
