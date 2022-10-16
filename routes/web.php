@@ -52,3 +52,5 @@ Route::get('/p/create', [
     'as' => 'create',
     'middleware' => 'auth'
 ]);
+
+Route::post('/p', 'App\Http\Controllers\PostsController@store');
