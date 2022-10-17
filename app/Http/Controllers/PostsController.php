@@ -25,6 +25,14 @@ class PostsController extends Controller
         dd(request()->all());
     }
 
+    public function edit($PostId)
+    {
+
+        //if (!Auth::user()->can('update', $post)) abort(403); TODO: Autentikáció
+
+        return view('posts.edit'); //TODO: Poszt adatok itteni betöltése
+    }
+
 
 }
 
