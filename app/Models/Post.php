@@ -13,12 +13,13 @@ class Post extends Model
         'user_id',
         'caption',
         'image',
+        'original_filename'
     ];
 
     protected $guarded = [];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
