@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -25,13 +26,27 @@ class PostsController extends Controller
         dd(request()->all());
     }
 
-    public function edit($PostId)
+    public function update(Request $request, Post $post)
+    {
+        $data = request()->validate([
+            'caption' => 'required',
+            'image' => ['required', 'image']
+
+        ]);
+
+        $post->update($data);
+        
+        
+        return redirect()->route('posts.show', $post);
+    }
+
+    public function edit(Post $post)
     {
 
         //if (!Auth::user()->can('update', $post)) abort(403); TODO: authentication
 
         return view('posts.edit', [
-            'post' => $PostId
+            'post' => $post
         ]);
     }
 

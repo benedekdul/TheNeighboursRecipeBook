@@ -1,19 +1,19 @@
 @extends('layouts.master')
 
-@section('Edit')
-    Create Post
+@section('title' ,'Edit post: '.  $post->caption )
+    Edit Post
 @endsection
 
 @section('content')
 <div class="container">
-    <form action="/p" enctype="multipart/form-data" method="post">
+    <form action="{{ route('posts.update', $post) }}" enctype="multipart/form-data" method="post">
         @csrf
 
         <div class="row">
             <div class="col-8 offset-2">
 
                 <div class="row">
-                    <h1>Add New Post</h1>
+                    <h1>Edit</h1>
                 </div>
                 <div class="form-group row">
                     <label for="caption" class="col-md-4 col-form-label">Post Caption</label>

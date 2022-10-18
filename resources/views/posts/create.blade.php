@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('Create')
+@section('title', )
     Create Post
 @endsection
 

@@ -48,11 +48,11 @@ Route::get('logout', [
     'as' => 'logout'
 ]);
 
-Route::get('/posts/create', [
+/*Route::get('/posts/create', [
     'uses' => 'App\Http\Controllers\PostsController@create',
     'as' => 'create',
     'middleware' => 'auth'
-]);
+]);*/
 
 Route::post('/p', 'App\Http\Controllers\PostsController@store');
 
