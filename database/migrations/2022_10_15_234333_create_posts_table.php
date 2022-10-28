@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('caption');
             $table->string('image');
             $table->timestamps();
+            $table->string('original_filename');
 
             $table->index('user_id');
         });
