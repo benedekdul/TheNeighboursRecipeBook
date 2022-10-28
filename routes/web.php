@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostsController;
 
 
 /*
@@ -46,3 +47,13 @@ Route::get('logout', [
     'uses' => 'App\Http\Controllers\UserController@getLogout',
     'as' => 'logout'
 ]);
+
+/*Route::get('/posts/create', [
+    'uses' => 'App\Http\Controllers\PostsController@create',
+    'as' => 'create',
+    'middleware' => 'auth'
+]);*/
+
+Route::post('/p', 'App\Http\Controllers\PostsController@store');
+
+Route::resource('posts', PostsController::class);
