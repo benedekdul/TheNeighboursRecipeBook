@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('Posts', PostsController::class); 
+//Not-Yet working routes from LEGACY code
+//Views do not exists right now, and it will be done differently by Benedek
