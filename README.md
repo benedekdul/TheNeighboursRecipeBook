@@ -22,5 +22,5 @@ php artisan migrate
 php artisan db:seed
 ```
 
-## Hosting the application
-`npm run dev`
+## Development build
+Run `npm run dev` and `php artisan serve` (run them at the same time as separate processes)
