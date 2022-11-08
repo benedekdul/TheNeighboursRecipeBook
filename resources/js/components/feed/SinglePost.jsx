@@ -1,24 +1,48 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-function SinglePost() {
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">post cap</div>
+class SinglePost extends Component{
+    constructor(props){
+        super(props);
 
-                        <div className="card-body">
-                            some text
+        this.state = {
+            userId: '',
+            caption: '',
+            body: '',
+            img: '',
+        };
+    }
 
-                            <img></img>
+    componentDidMount(){
+        this.getPost();
+    }
+
+    getPost(){
+        axios.get('url').then(function (response) {
+            console.log(response);
+        });
+    }
+
+    render(){
+        return (
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-8">
+                        <div className="card">
+                            <div className="card-header">post cap</div>
+    
+                            <div className="card-body">
+                                some text
+    
+                                <img></img>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default SinglePost;
