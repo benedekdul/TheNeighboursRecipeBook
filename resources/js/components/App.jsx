@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SinglePost from './feed/SinglePost'
 
+import '../../css/style.css'
+
 function App() {
     return (
         <div className="container">
