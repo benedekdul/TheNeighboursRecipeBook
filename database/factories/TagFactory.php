@@ -17,7 +17,8 @@ class TagFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->word(),
+            'post_id' => rand(0,10),
         ];
     }
 }
