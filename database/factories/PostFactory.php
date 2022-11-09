@@ -20,7 +20,8 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => rand(0,10),
-            'caption' => fake()->text('20'),
+            'caption' => fake()->text('40'),
+            'body' => fake()->text('200'),
             'image' => fake()->word() . fake()->fileExtension(),
             'original_filename' => fake()->word() . fake()->fileExtension()
         ];

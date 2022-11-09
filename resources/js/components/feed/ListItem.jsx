@@ -28,7 +28,7 @@ class ListItem extends Component{
                             <a href="#" className="post-date">{ this.displayTime() }</a>
                             <a href="#" className="post-author">By { this.props.data.authorName }</a>
                         </div>
-                        <p>{ this.props.data.caption } </p>
+                        <p>{ this.props.data.body } </p>
                         <a href="#" className="btn bueno-btn">Steal it</a>
                         <a href="#" className="btn bueno-btn">Comment</a>
                     </div>
