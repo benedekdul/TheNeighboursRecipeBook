@@ -22,3 +22,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::resource('Posts', PostsController::class); 
 //Not-Yet working routes from LEGACY code
 //Views do not exists right now, and it will be done differently by Benedek
+
+//i only left this here temporarily
+Route::get('test', [App\Http\Controllers\PostController::class, 'getPost']);

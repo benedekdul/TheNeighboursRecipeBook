@@ -54,6 +54,10 @@ class PostController extends Controller
         return redirect()->route('posts.show', $post); //Returing the view TODO -> may be obsolete
     }
 
+    public function getPost(){
+        return response()->json(Post::find(1));
+    }
+
     /**
      * Display the specified resource.
      *

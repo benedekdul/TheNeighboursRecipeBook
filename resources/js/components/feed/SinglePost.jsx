@@ -7,10 +7,11 @@ class SinglePost extends Component{
         super(props);
 
         this.state = {
+            postId: '',
             userId: '',
             caption: '',
-            body: '',
-            img: '',
+            image: '',
+            createdAt: '',
         };
     }
 
@@ -19,8 +20,15 @@ class SinglePost extends Component{
     }
 
     getPost(){
-        axios.get('url').then(function (response) {
-            console.log(response);
+        let self = this;
+        axios.get('test').then(function (response) {
+            self.setState({
+                postId: response.data.id,
+                userId: response.data.user_id,
+                caption: response.data.caption,
+                createdAt: response.data.created_at,
+                image: response.data.image
+            });
         });
     }
 
@@ -28,14 +36,14 @@ class SinglePost extends Component{
         return (
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                         <div className="card">
-                            <div className="card-header">post cap</div>
-    
+                            <div className="card-header">{this.state.caption}</div>
                             <div className="card-body">
-                                some text
-    
-                                <img></img>
+                                image: { this.state.image}
+
+                                created at: {this.state.createdAt}
+                                
                             </div>
                         </div>
                     </div>
