@@ -12,16 +12,16 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'caption',
+        'body',
         'image',
         'original_filename'
     ];
 
     protected $guarded = [];
-
-    //It is a current issue how the realtions with the models should look, need to discuss
-    /*public function user()
+    
+    public function post()
     {
-        return $this->belongsTo(User::class, 'user_id');
-    }*/
+        return $this->belongsTo(User::class);
+    }
     
 }

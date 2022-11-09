@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::resource('Posts', PostsController::class); 
 //Not-Yet working routes from LEGACY code
 //Views do not exists right now, and it will be done differently by Benedek
+
+//i only left this here temporarily
+Route::get('test', [App\Http\Controllers\PostController::class, 'getPost']);
+Route::get('testAll', [App\Http\Controllers\PostController::class, 'getAllPosts']);

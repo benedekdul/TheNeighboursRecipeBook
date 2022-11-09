@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -54,6 +55,17 @@ class PostController extends Controller
         return redirect()->route('posts.show', $post); //Returing the view TODO -> may be obsolete
     }
 
+    public function getPost(){
+        return response()->json(Post::find(1));
+    }
+
+    public function getAllPosts(){
+        return Post::addSelect([
+            'authorName' => User::select('name')
+            ->whereColumn('id', 'posts.user_id')
+        ])->get();
+    }
+    
     /**
      * Display the specified resource.
      *

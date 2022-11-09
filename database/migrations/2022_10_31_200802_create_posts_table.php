@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('caption');
+            $table->string('body');
             $table->string('image');
             $table->string('original_filename');
             $table->timestamps();
