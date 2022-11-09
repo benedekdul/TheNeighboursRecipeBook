@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../../css/style.css'
-import ListView from './feed/ListView';
+import Feed from './feed/Feed';
 import Header from './Header';
 
 
@@ -12,7 +12,7 @@ function App() {
                 {/* components go here */}
                 <Header/>
 
-                <ListView/>
+                <Feed/>
             </div>
         </div>
     );
