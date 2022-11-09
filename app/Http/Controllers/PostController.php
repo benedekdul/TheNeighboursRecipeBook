@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -58,10 +59,13 @@ class PostController extends Controller
         return response()->json(Post::find(1));
     }
 
-    public function getPosts(){
-        return response()->json(Post::all());
+    public function getAllPosts(){
+        return Post::addSelect([
+            'authorName' => User::select('name')
+            ->whereColumn('id', 'posts.user_id')
+        ])->get();
     }
-
+    
     /**
      * Display the specified resource.
      *

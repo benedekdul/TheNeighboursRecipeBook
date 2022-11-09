@@ -25,5 +25,4 @@ Route::resource('Posts', PostsController::class);
 
 //i only left this here temporarily
 Route::get('test', [App\Http\Controllers\PostController::class, 'getPost']);
-Route::get('testAll', [App\Http\Controllers\PostController::class, 'getPosts']);
-
+Route::get('testAll', [App\Http\Controllers\PostController::class, 'getAllPosts']);

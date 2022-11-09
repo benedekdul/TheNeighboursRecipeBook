@@ -8,7 +8,7 @@ function App() {
         <div className="container">
             <div className="row justify-content-center">
                 {/* components go here */}
-
+                
                 <ListView/>
             </div>
         </div>
