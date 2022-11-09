@@ -6,6 +6,7 @@
         "test": "jest"
     },
     "devDependencies": {
+        "@babel/preset-env": "^7.20.2",
         "@popperjs/core": "^2.10.2",
         "@vitejs/plugin-react": "^2.0.0",
         "axios": "^1.1.2",
@@ -19,5 +20,9 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "babel-jest": "^29.3.1",
+        "ts-jest": "^29.0.3"
     }
 }
