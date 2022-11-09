@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SinglePost from './feed/SinglePost'
-
 import '../../css/style.css'
+import ListView from './feed/ListView';
 
 function App() {
     return (
@@ -10,7 +9,7 @@ function App() {
             <div className="row justify-content-center">
                 {/* components go here */}
 
-                <SinglePost/>
+                <ListView/>
             </div>
         </div>
     );

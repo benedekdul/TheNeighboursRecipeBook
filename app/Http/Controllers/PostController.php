@@ -58,6 +58,10 @@ class PostController extends Controller
         return response()->json(Post::find(1));
     }
 
+    public function getPosts(){
+        return response()->json(Post::all());
+    }
+
     /**
      * Display the specified resource.
      *
