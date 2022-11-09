@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ListItem from './ListItem';
+import ListItemRight from './ListItemRight';
+import ListItemLeft from './ListItemLeft';
 
 class ListView extends Component{
     constructor(props){
@@ -28,7 +29,7 @@ class ListView extends Component{
     render(){
         return (
             this.state.posts.map(function (x,i) {
-                return <ListItem key={i} data={x}/>
+                return i%2 == 0 ? <ListItemLeft key={i} data={x}/> : <ListItemRight key={i} data={x}/>
             })
         );
     }
