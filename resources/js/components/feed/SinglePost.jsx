@@ -7,11 +7,12 @@ class SinglePost extends Component{
         super(props);
 
         this.state = {
-            postId: '',
-            userId: '',
+            authorName: 'Kormos Béla',
             caption: '',
+            body: 'Nagyon fincsi nagyon jo hami nyami kavarom a pudingom :P',
+            tags: '',
             image: '',
-            createdAt: '',
+            createdAt: ''
         };
     }
 
@@ -24,7 +25,7 @@ class SinglePost extends Component{
         axios.get('test').then(function (response) {
             self.setState({
                 postId: response.data.id,
-                userId: response.data.user_id,
+                userName: response.data.user_id,
                 caption: response.data.caption,
                 createdAt: response.data.created_at,
                 image: response.data.image
@@ -32,20 +33,24 @@ class SinglePost extends Component{
         });
     }
 
+    dateTime(){
+        let d = new Date(this.state.createdAt);
+        return `${d.getFullYear()}. ${d.getMonth()}. ${d.getDay()}. | ${d.getHours()}:${d.getMinutes()}`;
+    }
+
     render(){
         return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-12">
-                        <div className="card">
-                            <div className="card-header">{this.state.caption}</div>
-                            <div className="card-body">
-                                image: { this.state.image}
-
-                                created at: {this.state.createdAt}
-                                
-                            </div>
-                        </div>
+            <div className="single-blog-post style-1 d-flex flex-wrap mb-30">
+                <div className="blog-thumbnail">
+                    <img src="https://img.jamieoliver.com/jamieoliver/recipe-database/oldImages/large/576_1_1438868377.jpg" alt=""></img>
+                </div>
+                <div className="blog-content">
+                    <a className="post-tag">#Tags #Tags #Tags #Tags</a>
+                    <a href="#" className="post-title">{ this.state.caption }</a>
+                    <p>{ this.state.body }</p>
+                    <div className="post-meta">
+                        <a href="#" className="post-date">{ this.dateTime() }</a>
+                        <a href="#" className="post-author">By { this.state.authorName }</a>
                     </div>
                 </div>
             </div>
