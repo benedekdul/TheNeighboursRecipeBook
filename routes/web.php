@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,11 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('Posts', PostsController::class); 
+Route::resource('Posts', PostController::class); 
+Route::post('store-post', [App\Http\Controllers\PostController::class, 'store']);
+
+//Route::post('posts/create', [PostController::class, 'store'])->name('posts.store');
+//Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 //Not-Yet working routes from LEGACY code
 //Views do not exists right now, and it will be done differently by Benedek
 
