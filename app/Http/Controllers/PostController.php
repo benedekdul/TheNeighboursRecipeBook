@@ -37,22 +37,83 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = request()->validate([  
-            'caption' => 'required',
-            'image' => ['required', 'image'] 
-        ]); // Request validation
+        try {
+            $data = $request->validate([  
+                'caption' => 'required',
+                'image' => [ 'required', 'image'] 
+            ]); // Request validation
+            
+            /* Storing the file on the server */
+            $fileName = time().'.'.$request['image']->extension();  
+            $request['image']->move(public_path('images'), $fileName);
 
-        $file = $request->file('image');
-        $data['original_filename'] = $file->getClientOriginalName();
-        Storage::disk('public')->put('images/' . $file->getClientOriginalName(), $file->get()); // Image storing
+            /* Appending dummy data to the post */
+            $data['user_id'] = 1; //Mock data before authentication is enabled
+            $data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
 
-        $data['user_id'] = Auth::id(); // Appending user_id to data
+            /* Image data of the post is the path to the image */
+            $data['image'] = public_path('images').'\\'.$fileName;
 
-        $post = Post::create($data);
-        $request->session()->flash('post-created', $post->caption);
-        $post->save(); // Saving the post
+            $data['original_filename'] = $fileName;
 
-        return redirect()->route('posts.show', $post); //Returing the view TODO -> may be obsolete
+            /* Storing the post in the database */
+            $post = Post::create($data);
+            $post->save();
+
+            return response()->json([
+                'var_caption' => $data['caption'],
+                'var_image2' =>  $data['image'],
+                'msg' => 'The upload was a success'
+            ]); 
+        } catch (\Throwable $th) {
+            return response()->json([
+                'error_message' => $th->getMessage()
+            ]);
+        }
+    }
+    /**
+     * Deprecated store function for testing
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function testStorePost(Request $request)
+    {
+        $data = $request;
+        try {
+            $data = $request->validate([  
+                'caption' => 'required',
+                'image' => [ 'required', 'image'] 
+            ]); // Request validation
+            
+            /* Storing the file on the server */
+            $fileName = time().'.'.$request['image']->extension();  
+            $request['image']->move(public_path('images'), $fileName);
+
+            /* Appending dummy data to the post */
+            $data['user_id'] = 1; //Mock data before authentication is enabled
+            $data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
+
+            /* Image data of the post is the path to the image */
+            $data['image'] = public_path('images').'\\'.$fileName;
+
+            $data['original_filename'] = $fileName;
+
+            /* Storing the post in the database */
+            $post = Post::create($data);
+            $post->save();
+
+            return response()->json([
+                'var_caption' => $data['caption'],
+                'var_image2' =>  $data['image'],
+                'msg' => 'The upload was a success'
+            ]); 
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => '500',
+                'message' => $th->getMessage()
+            ]);
+        }
     }
 
     public function getPost(){
