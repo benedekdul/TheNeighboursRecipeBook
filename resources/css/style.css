@@ -1655,3 +1655,45 @@ h3 {
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
+/* ========== Profile ==========*/
+
+.profile {
+  width: 1000px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-header-content {
+  padding: 21px;
+}
+
+.stats ul {
+  padding: 0px;
+  list-style: none;
+  margin: 0px;
+}
+
+.stats li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.profile-avatar {
+  height: 200px;
+  width: 200px;
+  padding: 21px;
+}
+
+.profile-info h1 {
+  margin-bottom: 0px !important;
+}
+
+
