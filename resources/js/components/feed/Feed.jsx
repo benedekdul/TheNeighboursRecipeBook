@@ -8,7 +8,9 @@ class Feed extends Component{
         super(props);
 
         this.state = {
-            posts: []
+            posts: [],
+            debug : false
+            
         };
     }
 
@@ -27,6 +29,7 @@ class Feed extends Component{
 
     render(){
         return (
+            
             <ListView posts = {this.state.posts}/>
         );
     }

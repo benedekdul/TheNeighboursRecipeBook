@@ -30,7 +30,7 @@ class ListItemRight extends Component{
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="big-post-thumbnail mb-50">
-                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/09/how-to-fry-an-egg-3-1200.jpg" alt=""></img>
+                        <img src={"/images/"+this.props.data.original_filename} alt=""></img>
                     </div>
                 </div>
             </div>

@@ -40,6 +40,7 @@ class PostController extends Controller
         try {
             $data = $request->validate([  
                 'caption' => 'required',
+                'body' => 'required',
                 'image' => [ 'required', 'image'] 
             ]); // Request validation
             
@@ -49,7 +50,7 @@ class PostController extends Controller
 
             /* Appending dummy data to the post */
             $data['user_id'] = 1; //Mock data before authentication is enabled
-            $data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
+            //$data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
 
             /* Image data of the post is the path to the image */
             $data['image'] = public_path('images').'\\'.$fileName;
