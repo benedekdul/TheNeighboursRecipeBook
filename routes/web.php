@@ -3,22 +3,27 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Authentication routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Here are all the routes for the authentication system, such as login, register.
 |
 */
 
-Route::get('/', function(){
-    return view('home');
-})->name('home');
+Route::post('login', [LoginController::class, 'authenticate']);
 
+/*
+|--------------------------------------------------------------------------
+| Feed routes
+|--------------------------------------------------------------------------
+|
+| Here are all the routes for the feed.
+|
+*/
 
 Route::resource('Posts', PostController::class); 
 Route::post('store-post', [App\Http\Controllers\PostController::class, 'store']);
@@ -31,3 +36,16 @@ Route::post('store-post', [App\Http\Controllers\PostController::class, 'store'])
 //i only left this here temporarily
 Route::get('test', [App\Http\Controllers\PostController::class, 'getPost']);
 Route::get('testAll', [App\Http\Controllers\PostController::class, 'getAllPosts']);
+
+/*
+|--------------------------------------------------------------------------
+| Other routes
+|--------------------------------------------------------------------------
+|
+| Here are all the other routes for the app.
+|
+*/
+
+Route::get('/', function(){
+    return view('home');
+})->name('home');
