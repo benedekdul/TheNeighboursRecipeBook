@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { screen} from 'react-test-renderer';
 import { render } from '@testing-library/react';
-import App from './App';
+import Header from './Header';
 import '@testing-library/jest-dom';
 
 let container = null;
@@ -21,6 +21,6 @@ afterEach(() => {
 });
 
 it("Component rendered", () => {
-  render(<App />,container);
+  render(<Header />,container);
   expect(container).toBeInTheDocument();
 });
