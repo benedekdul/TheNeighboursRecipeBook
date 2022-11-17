@@ -53,32 +53,31 @@ function App() {
                 <Header actionHandler={passActionHandler}/>
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "login" ? (
-                        <>
+                        <div class="col-md-12">
                             <Login actionHandler={passActionHandler}/> 
-                        </>
+                        </div>
                     ) : null
                 }
                 {action == "register" ? (
-                        <>
+                        <div class="col-md-12">
                             <Register actionHandler={passActionHandler}/> 
-                        </>
+                        </div>
                     ) : null
                 }
                 {action == "post_create"  ? ( 
-                        <>
+                         <div class="col-md-12">
                             <AddPost post_posted={passActionHandler} />
                             <hr></hr>
                             <button onClick={(create_post_hide)}> Cancel </button>
-                        </>
+                        </div>
                     ) : null
                 }
                 {action == "init" ? (
-                        <>
+                        <div class="col-md-12">
                             <button onClick={(create_post_show)}> Create Post </button>
                             <hr></hr>
-                            <Feed/> 
-                            
-                        </>
+                            <Feed/>  
+                        </div>
                         
                     ) : null
                 }
