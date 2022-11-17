@@ -71,6 +71,14 @@ class Login extends Component{
                         >
                             Login
                         </Button>
+                        <Button
+                            fullWidth
+                            onClick={()=>{this.props.actionHandler("register")}}
+                            variant={"outlined"}
+                            sx={{ mt: 3, mb: 2 }}
+                        >
+                            Create an account
+                        </Button>
                     </Box>
                 </Box>
             </Container>
