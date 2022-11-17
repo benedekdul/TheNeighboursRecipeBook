@@ -6,13 +6,18 @@ import ReactDOM from 'react-dom';
 import AddPost from './Create/AddPost';
 import Feed from './feed/Feed';
 import Header from './Header';
+import Login from './Auth/Login';
+import Register from './Auth/Register';
+
+import user from "./Auth/User";
 //import { useState } from 'react';
 
 
 function App() {
 
-    const [action, actionHandler] = useState("init");
-    
+    console.log(user, user.isLoggedIn());
+
+    const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
 
     let debug = true;
 
@@ -37,22 +42,31 @@ function App() {
         //console.log("Post creation hidden " + action);
     }
 
-    const post_posted = arg => {
+    const passActionHandler = arg => {
         actionHandler(arg);
     }
 
-
     return (
-         
-        
         <div className="container">
             <div className="row justify-content-center">
                 {/* components go here */}
-                <Header/>
+                <Header actionHandler={passActionHandler}/>
                 {/* <AddPost post_posted={post_posted}/> */}
+                {action == "login" ? (
+                        <>
+                            <Login actionHandler={passActionHandler}/> 
+                        </>
+                    ) : null
+                }
+                {action == "register" ? (
+                        <>
+                            <Register actionHandler={passActionHandler}/> 
+                        </>
+                    ) : null
+                }
                 {action == "post_create"  ? ( 
                         <>
-                            <AddPost post_posted={post_posted} />
+                            <AddPost post_posted={passActionHandler} />
                             <hr></hr>
                             <button onClick={(create_post_hide)}> Cancel </button>
                         </>
