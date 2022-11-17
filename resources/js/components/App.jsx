@@ -12,7 +12,7 @@ import Login from './Auth/Login';
 
 function App() {
 
-    const [action, actionHandler] = useState("init");
+    const [action, actionHandler] = useState("login");
     
 
     let debug = true;
@@ -50,7 +50,7 @@ function App() {
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "login" ? (
                         <>
-                            <Login/> 
+                            <Login actionHandler={passActionHandler}/> 
                         </>
                     ) : null
                 }
