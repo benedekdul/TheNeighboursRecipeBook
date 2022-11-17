@@ -12,19 +12,20 @@ import user from "./User";
 
 class Login extends Component{
     handleSubmit = (event) => {
-        // event.preventDefault()
-        // const formData = new FormData(event.currentTarget);
+        event.preventDefault()
+        const formData = new FormData(event.currentTarget);
     
-        // const loginCredentials = {
-        //     email: formData.get('email'),
-        //     password: formData.get('password')
-        // }
+        const loginCredentials = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            password: formData.get('password')
+        }
     
-        // window.axios.post('/login', loginCredentials).then((response) => {
-        //     console.log('Logged successfully!')
-        //     user.authenticated(response.data);
-        //     this.props.actionHandler("init");
-        // })
+        window.axios.post('/register', loginCredentials).then((response) => {
+            user.authenticated(response);
+            this.props.actionHandler("init");
+            // console.log(response);
+        })
     }
 
     render(){

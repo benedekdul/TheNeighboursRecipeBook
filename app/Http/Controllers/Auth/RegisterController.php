@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function register($request){
+    public function register(Request $request){
         $this->validate($request, [
             'email' => 'required|email|unique:users',
             'name' => 'required|unique:users|max:120',
@@ -23,7 +23,7 @@ class RegisterController extends Controller
 
         $user = new User();
         $user->email = $email;
-        $user->username = $username;
+        $user->name = $username;
         $user->password = $password;
         $user->save();
 

@@ -16,8 +16,8 @@ import user from "./Auth/User";
 function App() {
 
     console.log(user, user.isLoggedIn());
+
     const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
-    
 
     let debug = true;
 
@@ -53,6 +53,12 @@ function App() {
                 <Header actionHandler={passActionHandler}/>
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "login" ? (
+                        <>
+                            <Login actionHandler={passActionHandler}/> 
+                        </>
+                    ) : null
+                }
+                {action == "register" ? (
                         <>
                             <Register actionHandler={passActionHandler}/> 
                         </>
