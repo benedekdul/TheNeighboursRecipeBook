@@ -8,6 +8,8 @@ import {
     Typography
 } from "@mui/material";
 
+import user from "./User";
+
 class Login extends Component{
     handleSubmit = (event) => {
         event.preventDefault()

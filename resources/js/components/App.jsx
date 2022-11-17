@@ -7,6 +7,7 @@ import AddPost from './Create/AddPost';
 import Feed from './feed/Feed';
 import Header from './Header';
 import Login from './Auth/Login';
+import user from "./Auth/User";
 //import { useState } from 'react';
 
 
