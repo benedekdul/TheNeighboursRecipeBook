@@ -7,6 +7,8 @@ import AddPost from './Create/AddPost';
 import Feed from './feed/Feed';
 import Header from './Header';
 import Login from './Auth/Login';
+import Register from './Auth/Register';
+
 import user from "./Auth/User";
 //import { useState } from 'react';
 
@@ -52,7 +54,7 @@ function App() {
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "login" ? (
                         <>
-                            <Login actionHandler={passActionHandler}/> 
+                            <Register actionHandler={passActionHandler}/> 
                         </>
                     ) : null
                 }
