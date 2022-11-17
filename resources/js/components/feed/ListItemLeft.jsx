@@ -8,6 +8,7 @@ class ListItemLeft extends Component{
     }
 
     displayTime(){
+        //console.log(this.props.data.image);
         let d = new Date(this.props.data.created_at);
         return `${d.getFullYear()}. ${d.getMonth()}. ${d.getDay()}. | ${d.getHours()}:${d.getMinutes()}`;
     }
@@ -17,7 +18,7 @@ class ListItemLeft extends Component{
             <div className="row align-items-center">
                 <div className="col-12 col-md-6">
                     <div className="big-post-thumbnail mb-50">
-                        <img src="https://www.jessicagavin.com/wp-content/uploads/2020/09/how-to-fry-an-egg-3-1200.jpg" alt=""></img>
+                        <img src={"/images/"+this.props.data.original_filename} alt=""></img>
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
