@@ -15,7 +15,7 @@ import user from "./Auth/User";
 
 function App() {
 
-    console.log(user, user.isLoggedIn());
+    //console.log(user, user.isLoggedIn());
 
     const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
 
