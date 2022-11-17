@@ -13,7 +13,7 @@ import user from "./Auth/User";
 
 function App() {
 
-    const [action, actionHandler] = useState("login");
+    const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
     
 
     let debug = true;

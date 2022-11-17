@@ -22,6 +22,7 @@ class Login extends Component{
     
         window.axios.post('/login', loginCredentials).then((response) => {
             console.log('Logged successfully!')
+            user.authenticated(response.data);
             this.props.actionHandler("init");
         })
     }

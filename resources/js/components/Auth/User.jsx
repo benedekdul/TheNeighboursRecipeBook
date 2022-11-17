@@ -17,14 +17,12 @@ class User {
      * @param data.email string
      * @param callback function
      */
-    authenticated(data, callback) {
+    authenticated(data) {
         localStorage.setItem('userName', data.name)
         localStorage.setItem('userEmail', data.email)
         localStorage.setItem('userLoggedIn', true)
 
         this.init()
-
-        callback()
     }
 
     /**
