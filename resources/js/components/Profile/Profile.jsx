@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ListView from '../feed/ListView'
+import ListView from '../feed/ListView';
+import GridView from './GridView';
 
 
 class Profile extends Component
@@ -91,7 +92,7 @@ class Profile extends Component
                         <li ref={(tab) => this.tab_list = tab} className="tab-list" onClick={this.handleTab}><a>List</a></li>
                         </ul>
                     </div>
-                    {this.state.mode == "grid" ? <ListView posts={this.state.posts}/> : <ListView posts={this.state.posts}/> }
+                    {this.state.mode == "grid" ? <GridView posts={this.state.posts}/> : <ListView posts={this.state.posts}/> }
                     
                     </div>
                 </div>

@@ -133,7 +133,7 @@ class PostController extends Controller
         $posts = Post::find($user_id);
         //$posts = Post::where($user_id, 'user_id'); //not working
         return response()->json([
-            'status' => 200,
+            'status' => 200, 
             'posts' => $posts
         ]);
     }
