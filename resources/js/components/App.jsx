@@ -6,12 +6,13 @@ import '../../css/style.css'
 import AddPost from './Create/AddPost';
 import Feed from './feed/Feed';
 import Header from './Header';
+import Login from './Auth/Login';
 //import { useState } from 'react';
 
 
 function App() {
 
-    const [action, actionHandler] = useState("init");
+    const [action, actionHandler] = useState("login");
     
 
     let debug = true;
@@ -41,15 +42,18 @@ function App() {
         actionHandler(arg);
     }
 
-
     return (
-         
-        
         <div className="container">
             <div className="row justify-content-center">
                 {/* components go here */}
                 <Header/>
                 {/* <AddPost post_posted={post_posted}/> */}
+                {action == "login" ? (
+                        <>
+                            <Login/> 
+                        </>
+                    ) : null
+                }
                 {action == "post_create"  ? ( 
                         <>
                             <AddPost post_posted={post_posted} />
