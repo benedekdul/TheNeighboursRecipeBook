@@ -2,7 +2,7 @@ import { preventOverflow } from '@popperjs/core';
 import { initial } from 'lodash';
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
-import '../../css/style.css'
+//import '../../css/style.css'
 import AddPost from './Create/AddPost';
 import Feed from './feed/Feed';
 import Header from './Header';
