@@ -10,7 +10,17 @@ import {
 
 function Login() {
     const handleSubmit = (event) => {
-        //TODO handle form submit
+        event.preventDefault()
+        const formData = new FormData(event.currentTarget);
+    
+        const loginCredentials = {
+            email: formData.get('email'),
+            password: formData.get('password')
+        }
+    
+        window.axios.post('/login', loginCredentials).then((response) => {
+            console.log('Logged successfully!')
+        })
     }
 
     return (
