@@ -12,7 +12,7 @@ import Login from './Auth/Login';
 
 function App() {
 
-    const [action, actionHandler] = useState("login");
+    const [action, actionHandler] = useState("init");
     
 
     let debug = true;
@@ -38,7 +38,7 @@ function App() {
         //console.log("Post creation hidden " + action);
     }
 
-    const post_posted = arg => {
+    const passActionHandler = arg => {
         actionHandler(arg);
     }
 
@@ -56,7 +56,7 @@ function App() {
                 }
                 {action == "post_create"  ? ( 
                         <>
-                            <AddPost post_posted={post_posted} />
+                            <AddPost post_posted={passActionHandler} />
                             <hr></hr>
                             <button onClick={(create_post_hide)}> Cancel </button>
                         </>
