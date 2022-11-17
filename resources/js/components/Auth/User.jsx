@@ -7,7 +7,7 @@ class User {
     init() {
         this.name = localStorage.getItem('userName')
         this.email = localStorage.getItem('userEmail')
-        this.loggedIn = localStorage.getItem('userLoggedIn')
+        this.loggedIn = JSON.parse(localStorage.getItem('userLoggedIn')) === true;
     }
 
     /**
@@ -21,8 +21,14 @@ class User {
         localStorage.setItem('userName', data.name)
         localStorage.setItem('userEmail', data.email)
         localStorage.setItem('userLoggedIn', true)
-
         this.init()
+    }
+
+    logout(){
+        localStorage.setItem('userName', null)
+        localStorage.setItem('userEmail', null)
+        localStorage.setItem('userLoggedIn', false)
+        this.init();
     }
 
     /**

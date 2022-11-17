@@ -13,6 +13,7 @@ import user from "./Auth/User";
 
 function App() {
 
+    console.log(user, user.isLoggedIn());
     const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
     
 
@@ -47,7 +48,7 @@ function App() {
         <div className="container">
             <div className="row justify-content-center">
                 {/* components go here */}
-                <Header/>
+                <Header actionHandler={passActionHandler}/>
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "login" ? (
                         <>
