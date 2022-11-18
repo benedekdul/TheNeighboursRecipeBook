@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { getAllByText, render, screen } from '@testing-library/react';
-import Login from './Login';
+import AddPost from './AddPost';
 import '@testing-library/jest-dom';
 
 let container = null;
@@ -20,24 +20,13 @@ afterEach(() => {
 });
 
 it("Component rendered", () => {
-  render(<Login />,container);
+  render(<AddPost />,container);
   expect(container).toBeInTheDocument();
 });
 
-it("Component login text", () => {
-  const { getByText} = render(<Login />, container);
-  let tmp = screen.getAllByText(/Login/i);
-  expect(tmp[0]).toBeInTheDocument();
-});
-
-it("Component email text", () => {
-  const { getByText} = render(<Login />, container);
-  let tmp = screen.getAllByText(/E-mail/i);
-  expect(tmp[0]).toBeInTheDocument();
-});
-
-it("Component password text", () => {
-  const { getByText} = render(<Login />, container);
-  let tmp = screen.getAllByText(/Password/i);
-  expect(tmp[0]).toBeInTheDocument();
-});
+it("Component add post text", () => {
+    const { getByText} = render(<AddPost />, container);
+    let tmp = screen.getAllByText(/Add Post/i);
+    expect(tmp[0]).toBeInTheDocument();
+  });
+  
