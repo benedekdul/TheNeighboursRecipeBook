@@ -46,11 +46,12 @@ function App() {
 
     return (
          
-        
+         
         <div className="container">
             <div className="row justify-content-center">
                 {/* components go here */}
 
+                < Profile/>
                 <Header/>
                 {/* <AddPost post_posted={post_posted}/> */}
                 {action == "post_create"  ? ( 
@@ -80,6 +81,7 @@ function App() {
 
             </div>
         </div>
+       
     );
 }
 

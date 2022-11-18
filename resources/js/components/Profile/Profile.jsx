@@ -25,12 +25,25 @@ class Profile extends Component
         //gets the id from the path
         const user_id = this.props.match.params.user_id;
 
-        const res = await axios.get(`get-profile/${user_id}`);
+        const res = await axios.get(`get-post-profile/${user_id}`);
         if(res.data.status === 200)
         {
             this.setState({
                 name: res.data.posts.user_id,
                 posts: res.data.posts
+            });
+        }
+
+        const res2 = await axios.get(`get-profile/${user_id}`);
+        if(res2.data.status === 200)
+        {
+            this.setState({
+                bio: res2.data.profiles.bio,
+                profile_pic: res2.profiles.profile_picture_path,
+                post_count: res2.data.profiles.post_count,
+                followers: res2.data.profiles.follower_count,
+                following: res2.data.profiles.following_count,
+                follow: false
             });
         }
     }

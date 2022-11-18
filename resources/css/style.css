@@ -1657,104 +1657,7 @@ h3 {
 /*# sourceMappingURL=style.css.map */
 /* ========== Profile ==========*/
 
-div.ReactTags__tags {
-  position: relative;
-}
 
-/* Styles for the input */
-div.ReactTags__tagInput {
-  width: 90px;
-  border-radius: 2px;
-  display: inline-block;
-}
-div.ReactTags__tagInput input.ReactTags__tagInputField,
-div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
-  height: 31px;
-  margin: 0;
-  font-size: 12px;
-  width: 100%;
-  text-align: center;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  padding: 0 4px;
-}
-
-/* Styles for selected tags */
-div.ReactTags__selected span.ReactTags__tag {
-  border: 1px solid #ddd;
-  background: #eee;
-  font-size: 12px;
-  display: inline-block;
-  padding: 5px;
-  margin: 0 5px;
-  cursor: move;
-  border-radius: 2px;
-}
-div.ReactTags__selected a.ReactTags__remove {
-  color: #aaa;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-/* Styles for suggestions */
-div.ReactTags__suggestions {
-  position: absolute;
-}
-div.ReactTags__suggestions ul {
-  list-style-type: none;
-  box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
-  background: white;
-  width: 200px;
-}
-div.ReactTags__suggestions li {
-  border-bottom: 1px solid #ddd;
-  padding: 5px 10px;
-  margin: 0;
-}
-div.ReactTags__suggestions li mark {
-  text-decoration: underline;
-  background: none;
-  font-weight: 600;
-}
-div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
-  background: #b7cfe0;
-  cursor: pointer;
-}
-
-.main {
-  width: 1200px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-.view {
-  width: 600px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-.test {
-  width: 600px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-.share {
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.likes-num {
-  margin-left: 10px;
-  font-size: 13px;
-}
-
-.photo-dropdown button {
-  height: 27px;
-  width: 27px;
-  margin-top: 10px;
-  margin-right: 10px;
-}
 
 .content-body textarea {
   margin-top: 15px;
@@ -1813,10 +1716,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   grid-template-areas: "sidebar posts";
 }
 
-.sidebar {
-  grid-area: sidebar;
-}
-
 .posts {
   grid-area: posts;
 }
@@ -1825,28 +1724,6 @@ div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
   width: 1000px;
   margin: auto;
   margin-top: 100px;
-}
-
-.login,
-.register {
-  width: 400px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-#preview {
-  display: block;
-  margin: auto;
-}
-
-.upload {
-  width: 700px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-.navbar {
-  border-bottom: 1px solid lightgray;
 }
 
 .profile-avatar {
@@ -1875,10 +1752,6 @@ hr {
   margin-bottom: 5px;
 }
 
-span.comment {
-  margin-left: 5px;
-}
-
 .card-content {
   padding: 15px;
 }
@@ -1898,32 +1771,19 @@ span.comment {
   margin-right: 20px;
 }
 
-.comments ul {
-  padding: 0px;
-  list-style: none !important;
-  margin: 0px;
-  margin-bottom: 7px;
-  overflow-y: scroll;
-  max-height: 400px;
-}
-
-.comments li {
-  padding: 0px !important;
-  margin: 0px !important;
-}
-
-.comments .comment-username {
-  font-weight: bold;
-}
-
-.like {
-  float: right;
-}
-
 .card {
   margin-bottom: 50px;
 }
 
 .content-options time {
   float: right;
+}
+
+.tabs {
+  text-align: center;
+}
+
+.tabs ul > li {
+  display: inline-block;
+  padding: 20px 20px;
 }

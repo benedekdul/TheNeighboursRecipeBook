@@ -32,4 +32,5 @@ Route::post('store-post', [App\Http\Controllers\PostController::class, 'store'])
 Route::get('test', [App\Http\Controllers\PostController::class, 'getPost']);
 Route::get('testAll', [App\Http\Controllers\PostController::class, 'getAllPosts']);
 
-Route::get('get-profile/{user_id}', [App\Http\Controllers\PostController::class, 'getPostFromUser']);
+Route::get('get-post-profile/{user_id}', [App\Http\Controllers\PostController::class, 'getPostFromUser']);
+Route::get('get-profile/{user_id}', [App\Http\Controllers\ProfileController::class, 'getProfileFromUser']);
