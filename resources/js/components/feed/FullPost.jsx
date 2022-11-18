@@ -8,7 +8,11 @@ class FullPost extends Component{
     }
 
     fetchPostData(){
-        // axios. blavla
+        
+    }
+
+    componentDidMount(){
+        console.log(this.props);
     }
 
     render(){
