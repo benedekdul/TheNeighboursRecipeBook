@@ -117,8 +117,8 @@ class PostController extends Controller
         }
     }
 
-    public function getPost(){
-        return response()->json(Post::find(1));
+    public function getPost($post_id){
+        return response()->json(Post::find($post_id));
     }
 
     public function getAllPosts(){
@@ -127,6 +127,17 @@ class PostController extends Controller
             ->whereColumn('id', 'posts.user_id')
         ])->get();
     }
+
+    public function getPostFromUser($user_id){
+        $posts = User::find($user_id)->posts()->get();
+        return response()->json([
+            'status' => 200, 
+            'posts' => $posts
+        ]);
+    }
+
+
+
     
     /**
      * Display the specified resource.
