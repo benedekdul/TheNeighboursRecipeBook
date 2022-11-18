@@ -12,6 +12,8 @@ import Register from './Auth/Register';
 import user from "./Auth/User";
 //import { useState } from 'react';
 
+import FullPost from "./feed/FullPost";
+
 
 function App() {
 
@@ -76,7 +78,14 @@ function App() {
                         <div className="col-md-12">
                             <button onClick={(create_post_show)}> Create Post </button>
                             <hr></hr>
-                            <Feed/>  
+                            <Feed actionHandler={passActionHandler}/>  
+                        </div>
+                        
+                    ) : null
+                }
+                {action == "post" ? (
+                        <div className="col-md-12">
+                            <FullPost id={id}/>  
                         </div>
                         
                     ) : null

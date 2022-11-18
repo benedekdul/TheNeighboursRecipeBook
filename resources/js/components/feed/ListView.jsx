@@ -10,9 +10,10 @@ class ListView extends Component{
     }
 
     render(){
+        let self = this;
         return (
             this.props.posts.map(function (x,i) {
-                return i%2 == 0 ? <ListItemLeft key={i} data={x}/> : <ListItemRight key={i} data={x}/>
+                return i%2 == 0 ? <ListItemLeft actionHandler={self.props.actionHandler} key={i} data={x}/> : <ListItemRight actionHandler={self.props.actionHandler} key={i} data={x}/>
             })
         );
     }

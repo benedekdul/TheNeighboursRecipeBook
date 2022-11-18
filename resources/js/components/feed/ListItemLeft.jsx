@@ -24,7 +24,11 @@ class ListItemLeft extends Component{
                 <div className="col-12 col-md-6">
                     <div className="big-post-content text-center mb-50">
                         <a href="#" className="post-tag">#Tags #Tags #Tags</a>
-                        <a href="#" className="post-title">{ this.props.data.caption }</a>
+                        <a 
+                            href="#"
+                            className="post-title"
+                            onClick={() => {this.props.actionHandler(`post/${this.props.data.id}`)}}
+                            >{ this.props.data.caption }</a>
                         <div className="post-meta">
                             <a href="#" className="post-date">{ this.displayTime() }</a>
                             <a href="#" className="post-author">By { this.props.data.authorName }</a>
