@@ -83,9 +83,9 @@ function App() {
                         
                     ) : null
                 }
-                {action == "post" ? (
+                {action.includes("post/") ? (
                         <div className="col-md-12">
-                            <FullPost id={id}/>  
+                            <FullPost id={action.split('/')[1] - 0}/>  
                         </div>
                         
                     ) : null
