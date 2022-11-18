@@ -131,8 +131,8 @@ class PostController extends Controller
 
     public function getPostFromUser($user_id){
 
-        $posts = Post::find($user_id);
-        //$posts = Post::where($user_id, 'user_id'); //not working
+        $posts = User::find($user_id)->posts()->get();
+        
         return response()->json([
             'status' => 200, 
             'posts' => $posts
