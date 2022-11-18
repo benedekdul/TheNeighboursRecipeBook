@@ -118,7 +118,10 @@ class PostController extends Controller
     }
 
     public function getPost($post_id){
-        return response()->json(Post::find($post_id));
+        return Post::addSelect([
+            'authorName' => User::select('name')
+            ->whereColumn('id', 'posts.user_id')
+        ])->where('id', $post_id)->get()->first();
     }
 
     public function getAllPosts(){
