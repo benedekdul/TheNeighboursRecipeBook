@@ -17,5 +17,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/images
+/styleguide
 /reports
-/docs

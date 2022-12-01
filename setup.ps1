@@ -5,5 +5,5 @@ php artisan key:generate
 php artisan storage:link
 npm audit fix
 npm run build
-npx sylteguideist build
-vendor/bin/phpunit --coverage-html /reports
+npx sylteguidist build
+vendor/bin/phpunit --coverage-html reports

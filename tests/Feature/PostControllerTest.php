@@ -24,7 +24,7 @@ class PostControllerTest extends TestCase
      */
   
 
-    /*public function test_post_controller_store_good()
+    public function test_post_controller_store_good()
     {
         Storage::fake('avatars');
  
@@ -41,7 +41,7 @@ class PostControllerTest extends TestCase
         $contains = Str::contains($response->content(), "The upload was a success");
         error_log($response);
         $this->assertEquals($contains, True);
-    }*/
+    }
     public function test_post_controller_store_no_caption()
     {
         Storage::fake('avatars');
