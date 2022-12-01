@@ -2,11 +2,19 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+/**
+ * The component representing a single left post on the feed.
+ */
 class ListItemRight extends Component{
     constructor(props){
         super(props);
     }
 
+    /**
+     * Displays the creation date of the post.
+     * 
+     * @returns {string} The exact date and time when the post was created.
+     */
     displayTime(){
         let d = new Date(this.props.data.created_at);
         return `${d.getFullYear()}. ${d.getMonth()}. ${d.getDay()}. | ${d.getHours()}:${d.getMinutes()}`;

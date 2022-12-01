@@ -1,3 +1,6 @@
+/**
+ * This class represents the user.
+ */
 class User {
 
     constructor() {
@@ -33,7 +36,7 @@ class User {
 
     /**
      *
-     * @return {boolean}
+     * @return {boolean} True, if the user is logged in. False, otherwise.
      */
     isLoggedIn() {
         return Boolean(this.loggedIn) === true

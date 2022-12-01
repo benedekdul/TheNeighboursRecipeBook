@@ -10,7 +10,16 @@ import {
 
 import user from "./User";
 
+/**
+ * This class represents the register component.
+ */
+
 class Login extends Component{
+    /**
+     * Gets called when the user submits the Registration form.
+     * 
+     * @param {SyntheticEvent} event The react `SyntheticEvent`
+     */
     handleSubmit = (event) => {
         event.preventDefault()
         const formData = new FormData(event.currentTarget);
