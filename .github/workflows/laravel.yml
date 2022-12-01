@@ -36,9 +36,8 @@ jobs:
       env:
         DB_CONNECTION: sqlite
       run: |
-        php artisan cache:clear 
-        php artisan config:clear
         touch database/database.sqlite
         php artisan migrate
+        yes
     - name: Execute tests (Unit and Feature tests) via PHPUnit   
       run: vendor/bin/phpunit
