@@ -36,8 +36,8 @@ jobs:
       env:
         DB_CONNECTION: sqlite
       run: |
+        sed 's/# DB_CONNECTION=mysql/DB_CONNECTION=sqlite/' .env 
         touch database/database.sqlite
         php artisan migrate
-        yes
     - name: Execute tests (Unit and Feature tests) via PHPUnit   
       run: vendor/bin/phpunit
