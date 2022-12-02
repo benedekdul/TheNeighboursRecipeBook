@@ -30,5 +30,10 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - run: npx sylteguidist build
+    - run: npx styleguidist build
+      uses: actions/upload-artifact@v2
+      with:
+        name: assets-for-download
+        path: styleguide
+
       
