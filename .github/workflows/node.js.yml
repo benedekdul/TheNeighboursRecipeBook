@@ -33,7 +33,7 @@ jobs:
     - run: npx styleguidist build
     - uses: actions/upload-artifact@v2
       with:
-        name: assets-for-download
+        name: React Component Documentation Download
         path: styleguide
 
       
