@@ -32,8 +32,4 @@ jobs:
     - run: npm test
     - name: Generate documentation
     - run: npx sylteguidist build
-      uses: actions/upload-artifact@v2
-      name: Create Artifact
-      with:
-        name: assets-for-download
-        path: styleguide
+      
