@@ -68,7 +68,7 @@ class AddPost extends React.Component {
         });
       }
       console.log(this.state);
-      /* TODO: Make the redirection conditional after the upload is complete */
+      
       
       
   }

@@ -19,7 +19,7 @@ function App() {
 
     const [action, actionHandler] = useState(user.isLoggedIn() ? "init" : "login");
 
-    let debug = true;
+    let debug = false;
 
     /* if(action == "init")
     {

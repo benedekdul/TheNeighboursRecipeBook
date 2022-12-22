@@ -41,6 +41,7 @@ class PostControllerTest extends TestCase
         $contains = Str::contains($response->content(), "The upload was a success");
         error_log($response);
         $this->assertEquals($contains, True);
+        // TODO remove from database
     }
     public function test_post_controller_store_no_caption()
     {
