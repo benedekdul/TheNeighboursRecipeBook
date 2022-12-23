@@ -32,14 +32,16 @@ jobs:
           npm run build
 
 
+      
+
+
+      - name: Install Composer dependencies
+
       - uses: shivammathur/setup-php@master
 
         with:
 
           php-version: '8.1.9'
-
-
-      - name: Install Composer dependencies
 
       run: composer install --no-dev --no-interaction --prefer-dist
 
