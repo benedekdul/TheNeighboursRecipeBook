@@ -37,8 +37,7 @@ class Feed extends Component{
 
     render(){
         return (
-            
-            <ListView posts = {this.state.posts}/>
+            <ListView actionHandler={this.props.actionHandler} posts = {this.state.posts}/>
         );
     }
 }
