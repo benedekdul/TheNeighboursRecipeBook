@@ -25,12 +25,6 @@ it("Component rendered", () => {
   expect(container).toBeInTheDocument();
 });
 
-it("Component login state", () => {
-  const { getByText} = render(<App />, container);
-  const tmp = getByText(/Current state: login/i);
-  expect(tmp).toBeInTheDocument();
-});
-
 it("Component account create text", () => {
   const { getByText} = render(<App />, container);
   const tmp = getByText(/Create an account/i);
