@@ -31,6 +31,7 @@ Route::post('register', [RegisterController::class, 'register']);
 
 Route::resource('Posts', PostController::class); 
 Route::post('store-post', [App\Http\Controllers\PostController::class, 'store']);
+Route::delete('destroy-post', [App\Http\Controllers\PostController::class, 'destroy']);
 
 //Route::post('posts/create', [PostController::class, 'store'])->name('posts.store');
 //Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');

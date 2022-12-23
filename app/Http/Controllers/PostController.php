@@ -64,7 +64,8 @@ class PostController extends Controller
             return response()->json([
                 'var_caption' => $data['caption'],
                 'var_image2' =>  $data['image'],
-                'msg' => 'The upload was a success'
+                'msg' => 'The upload was a success',
+                'id' => $post['id']
             ]); 
         } catch (\Throwable $th) {
             return response()->json([
@@ -137,11 +138,18 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request)
     {
-        // TODO
+        $id = $request['id'];
+        Post::where('id',$id)->delete();
+        return response()->json(['mgs' => 'The delete was a success']);
+    }
+
+    public function destroyAll()
+    {
+        Post::truncate();
     }
 }
