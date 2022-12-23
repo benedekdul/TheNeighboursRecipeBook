@@ -1,10 +1,18 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import user from './Auth/User';
+
 
 class Header extends Component{
     constructor(props){
         super(props);
+    }
+
+    handleLogout(){
+        user.logout();
+        this.props.actionHandler('login');
+        console.log('kileptel bazmeee:P');
     }
 
     render(){
@@ -19,7 +27,7 @@ class Header extends Component{
                         <div className="col-12 col-sm-6">
 
                             <div className="top-social-info">
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><i className="fa fa-user" aria-hidden="true"></i></a>
+                                <a onClick={()=>{this.handleLogout()}} href="#" data-toggle="tooltip" data-placement="bottom" title="Logout"><i className="fa fa-user" aria-hidden="true"></i></a>
                                 {/* <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><i className="fa fa-comments-o" aria-hidden="true"></i></a> */}
 
                             </div>

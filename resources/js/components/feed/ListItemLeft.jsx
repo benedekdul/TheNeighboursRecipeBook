@@ -2,11 +2,19 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+/**
+ * The component representing a single left post on the feed.
+ */
 class ListItemLeft extends Component{
     constructor(props){
         super(props);
     }
 
+    /**
+     * Displays the creation date of the post.
+     * 
+     * @returns {string} The exact date and time when the post was created.
+     */
     displayTime(){
         //console.log(this.props.data.image);
         let d = new Date(this.props.data.created_at);
@@ -24,7 +32,11 @@ class ListItemLeft extends Component{
                 <div className="col-12 col-md-6">
                     <div className="big-post-content text-center mb-50">
                         <a href="#" className="post-tag">#Tags #Tags #Tags</a>
-                        <a href="#" className="post-title">{ this.props.data.caption }</a>
+                        <a 
+                            href="#"
+                            className="post-title"
+                            onClick={() => {this.props.actionHandler(`post/${this.props.data.id}`)}}
+                            >{ this.props.data.caption }</a>
                         <div className="post-meta">
                             <a href="#" className="post-date">{ this.displayTime() }</a>
                             <a href="#" className="post-author">By { this.props.data.authorName }</a>

@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+/**
+ * This component is responsible for creating a new post.
+ */
 class AddPost extends React.Component {
   constructor(props){
     super(props);
   }
 
   state = {
+      /** The caption of the picture. */
       caption : "",
+      /** The image file path. */
       image : "",
+      /** The description of the post. */
       body : "",
+      /** Error message. */
       error_message : ""
   }
 
+  /**
+   * Handler for input on body and caption.
+   * 
+   * @param {SyntheticEvent} e The react `SyntheticEvent`
+   */
   handleInput= (e) => {
       this.setState({
           [e.target.name] : e.target.value
@@ -19,12 +31,22 @@ class AddPost extends React.Component {
       console.log(e.target.value);
   }
 
+  /**
+   * Handler for image upload.
+   * 
+   * @param {SyntheticEvent} e The react `SyntheticEvent`
+   */
   handleImage = (e) => {
       this.setState({
           [e.target.name] :  e.target.files[0]
       });
   }
 
+  /**
+   * Saves the post created when user submits.
+   * 
+   * @param {SyntheticEvent} e The react `SyntheticEvent`
+   */
   savePost = async (e) => 
   {
       e.preventDefault();
@@ -46,7 +68,7 @@ class AddPost extends React.Component {
         });
       }
       console.log(this.state);
-      /* TODO: Make the redirection conditional after the upload is complete */
+      
       
       
   }

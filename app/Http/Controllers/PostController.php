@@ -64,7 +64,8 @@ class PostController extends Controller
             return response()->json([
                 'var_caption' => $data['caption'],
                 'var_image2' =>  $data['image'],
-                'msg' => 'The upload was a success'
+                'msg' => 'The upload was a success',
+                'id' => $post['id']
             ]); 
         } catch (\Throwable $th) {
             return response()->json([
@@ -72,53 +73,14 @@ class PostController extends Controller
             ]);
         }
     }
-    /**
-     * Deprecated store function for testing
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function testStorePost(Request $request)
-    {
-        $data = $request;
-        try {
-            $data = $request->validate([  
-                'caption' => 'required',
-                'image' => [ 'required', 'image'] 
-            ]); // Request validation
-            
-            /* Storing the file on the server */
-            $fileName = time().'.'.$request['image']->extension();  
-            $request['image']->move(public_path('images'), $fileName);
+    
+    
 
-            /* Appending dummy data to the post */
-            $data['user_id'] = 1; //Mock data before authentication is enabled
-            $data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
-
-            /* Image data of the post is the path to the image */
-            $data['image'] = public_path('images').'\\'.$fileName;
-
-            $data['original_filename'] = $fileName;
-
-            /* Storing the post in the database */
-            $post = Post::create($data);
-            $post->save();
-
-            return response()->json([
-                'var_caption' => $data['caption'],
-                'var_image2' =>  $data['image'],
-                'msg' => 'The upload was a success'
-            ]); 
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => '500',
-                'message' => $th->getMessage()
-            ]);
-        }
-    }
-
-    public function getPost(){
-        return response()->json(Post::find(1));
+    public function getPost($post_id){
+        return Post::addSelect([
+            'authorName' => User::select('name')
+            ->whereColumn('id', 'posts.user_id')
+        ])->where('id', $post_id)->get()->first();
     }
 
     public function getAllPosts(){
@@ -127,6 +89,17 @@ class PostController extends Controller
             ->whereColumn('id', 'posts.user_id')
         ])->get();
     }
+
+    public function getPostFromUser($user_id){
+        $posts = User::find($user_id)->posts()->get();
+        return response()->json([
+            'status' => 200, 
+            'posts' => $posts
+        ]);
+    }
+
+
+
     
 
     public function getPostFromUser($user_id){
@@ -191,11 +164,18 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request)
     {
-        // TODO
+        $id = $request['id'];
+        Post::where('id',$id)->delete();
+        return response()->json(['mgs' => 'The delete was a success']);
+    }
+
+    public function destroyAll()
+    {
+        Post::truncate();
     }
 }

@@ -1,0 +1,72 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches: 
+      - master
+      - develop
+
+jobs:
+
+  create-deployment-artifacts:
+
+    name: Create deployment artifacts
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Compile React
+
+        run: |
+
+          npm config set legacy-peer-deps true
+
+          npm install
+
+          npm run build
+
+
+      - name: Configure PHP
+
+        uses: shivammathur/setup-php@master
+
+        with:
+
+          php-version: '8.1.9'
+        
+      - name: Copy .env
+
+        run: cp env.example .env
+        
+
+      - name: Install Composer dependencies
+
+        run: composer install --no-dev --no-interaction --prefer-dist
+
+
+      - name: Create deployment artifact
+
+        env:
+
+          GITHUB_SHA: ${{ github.sha }}
+      
+        run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
+
+
+      - name: Store artifact
+
+        uses: actions/upload-artifact@v2
+
+        with:
+
+          name:  app-build
+
+          path: ${{ github.sha }}.tar.gz
+
+      

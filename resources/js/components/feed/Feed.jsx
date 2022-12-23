@@ -3,12 +3,17 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ListView from './ListView'
 
+/**
+ * This class represents the feed component where the posts are shown.
+ */
 class Feed extends Component{
     constructor(props){
         super(props);
 
         this.state = {
+            /** List of all posts. */
             posts: [],
+            /** Debug value. */
             debug : false
             
         };
@@ -18,6 +23,9 @@ class Feed extends Component{
         this.getPosts();
     }
 
+    /**
+     * Gets all the data of the available posts.
+     */
     getPosts(){
         let self = this;
         axios.get('testAll').then(function (response) {
@@ -29,8 +37,7 @@ class Feed extends Component{
 
     render(){
         return (
-            
-            <ListView posts = {this.state.posts}/>
+            <ListView actionHandler={this.props.actionHandler} posts = {this.state.posts}/>
         );
     }
 }
