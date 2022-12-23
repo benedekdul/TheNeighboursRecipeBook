@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import User from '../Auth/User.jsx';
 /**
  * This component is responsible for creating a new post.
  */
@@ -55,6 +56,7 @@ class AddPost extends React.Component {
       Data.append('caption', this.state.caption);
       Data.append('image', this.state.image);
       Data.append('body', this.state.body);
+      Data.append('id',User.id);
       const res = await axios.post('store-post', Data);
       console.log(res);
       if(res.data.msg== "The upload was a success")

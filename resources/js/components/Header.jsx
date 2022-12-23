@@ -47,7 +47,7 @@ class Header extends Component{
             </div>
 
             <div className="logo-area">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></img></a>
+                <a href="/"><img src="img/core-img/logo.png" alt=""></img></a>
             </div>
 
             </header>
