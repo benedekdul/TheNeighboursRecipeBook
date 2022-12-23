@@ -51,36 +51,11 @@ function App() {
             <div className="row justify-content-center">
                 {/* components go here */}
 
-                < Profile/>
-                <Header/>
-                {/* <AddPost post_posted={post_posted}/> */}
-                {action == "post_create"  ? ( 
-                        <>
-                            <AddPost post_posted={post_posted} />
-                            <hr></hr>
-                            <button onClick={(create_post_hide)}> Cancel </button>
-                        </>
-                    ) : null
-                }
-                {action == "init" ? (
-                        <>
-                            <button onClick={(create_post_show)}> Create Post </button>
-                            <hr></hr>
-                            <Feed/> 
-                            
-                        </>
-                        
-                    ) : null
-                }
-                { debug ? (
-                        <p>Current state: {action}</p>
-                    ) : null
-                    
-                }
                 
-
-            </div>
-        </div>
+                <Header/>
+                < Profile/>
+               </div>
+               </div>
        
     );
 }
