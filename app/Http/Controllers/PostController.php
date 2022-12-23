@@ -99,20 +99,6 @@ class PostController extends Controller
     }
 
 
-
-    
-
-    public function getPostFromUser($user_id){
-
-        $posts = User::find($user_id)->posts()->get();
-        
-        return response()->json([
-            'status' => 200, 
-            'posts' => $posts
-        ]);
-    }
-
-
     /**
      * Display the specified resource.
      *

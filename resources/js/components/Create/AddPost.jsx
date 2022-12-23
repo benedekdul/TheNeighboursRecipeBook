@@ -55,6 +55,7 @@ class AddPost extends React.Component {
       Data.append('caption', this.state.caption);
       Data.append('image', this.state.image);
       Data.append('body', this.state.body);
+      //Data.append('id',)
       const res = await axios.post('store-post', Data);
       console.log(res);
       if(res.data.msg== "The upload was a success")
