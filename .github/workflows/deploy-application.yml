@@ -19,32 +19,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       
-    - name: Compile React
+      - name: Compile React
 
-      run: |
+        run: |
 
-        npm config set legacy-peer-deps true
+          npm config set legacy-peer-deps true
 
-        npm install
+          npm install
 
-        npm run build
+          npm run build
 
 
+      - name: Configure PHP
+
+        uses: shivammathur/setup-php@master
+
+        with:
+
+          php-version: '8.1.9'
+
+
+      - name: Install Composer dependencies
+
+        run: composer install --no-dev --no-interaction --prefer-dist
+
+
+      - name: Create deployment artifact
+
+        env:
+
+          GITHUB_SHA: ${{ hithub.sha }}
       
+        run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
 
 
-    - name: Install Composer dependencies
+      - name: Store artifact
 
-    - uses: shivammathur/setup-php@master
+        uses: actions/upload-artifact@v2
 
-      with:
+        with:
 
-        php-version: '8.1.9'
+          name:  app-build
 
-    run: composer install --no-dev --no-interaction --prefer-dist
-
-
+          path: ${{ github_sha }}.tar.gz
 
       
