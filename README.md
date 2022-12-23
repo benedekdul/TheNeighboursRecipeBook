@@ -24,3 +24,9 @@ php artisan db:seed
 
 ## Development build
 Run `npm run dev` and `php artisan serve` (run them at the same time as separate processes)
+
+## Run build
+After istallation and database migrate then run:
+./run.bat
+or
+./run.sh
