@@ -33,6 +33,8 @@ Route::resource('Posts', PostController::class);
 Route::post('store-post', [App\Http\Controllers\PostController::class, 'store']);
 Route::delete('destroy-post', [App\Http\Controllers\PostController::class, 'destroy']);
 
+Route::get('post/{post_id}', [App\Http\Controllers\PostController::class, 'getPost']);
+
 //Route::post('posts/create', [PostController::class, 'store'])->name('posts.store');
 //Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
 //Not-Yet working routes from LEGACY code
