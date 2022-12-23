@@ -23,7 +23,7 @@ jobs:
         php-version: '8.1.9'
     - uses: actions/checkout@v3
     - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      run: php -r "file_exists('.env') || copy('env.example', '.env');"
     - name: Update Composer
       run: composer update
     - name: Install Dependencies

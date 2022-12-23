@@ -41,8 +41,9 @@ jobs:
           php-version: '8.1.9'
         
       - name: Copy .env
-      
-        run: php -r "file_exists('.env') || copy('env.example', '.env');"
+
+        run: cp env.example .env
+        
 
       - name: Install Composer dependencies
 
