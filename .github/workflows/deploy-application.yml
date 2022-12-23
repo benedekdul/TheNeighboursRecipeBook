@@ -32,8 +32,6 @@ jobs:
           npm run build
 
 
-      - name: Configure PHP
-
       - uses: shivammathur/setup-php@master
 
         with:
