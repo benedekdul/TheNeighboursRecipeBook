@@ -50,7 +50,7 @@ jobs:
 
         env:
 
-          GITHUB_SHA: ${{ hithub.sha }}
+          GITHUB_SHA: ${{ github.sha }}
       
         run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
 
