@@ -39,10 +39,6 @@ jobs:
         with:
 
           php-version: '8.1.9'
-
-      - name: Copy .env
-      
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
         
       - name: Install Composer dependencies
 
@@ -55,7 +51,7 @@ jobs:
 
           GITHUB_SHA: ${{ github.sha }}
       
-        run: zip -r "${GITHUB_SHA}".zip * -x *.git node_modules -x node_modules
+        run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
 
 
       - name: Store artifact
@@ -66,6 +62,6 @@ jobs:
 
           name:  app-build
 
-          path: ${{ github.sha }}.zip
+          path: ${{ github.sha }}.tar.gz
 
       
