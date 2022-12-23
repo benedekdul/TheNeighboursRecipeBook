@@ -30,37 +30,4 @@ jobs:
           npm run prod
 
 
-      - name: Configure PHP
-
-      uses: shivammathur/setup-php@master
-
-      with:
-
-        php-version: '8.1.9'
-
-
-      - name: Install Composer dependencies
-
-      run: composer install --no-dev --no-interaction --prefer-dist
-
-
-      - name: Create deployment artifact
-
-      env:
-
-        GITHUB_SHA: ${{ hithub.sha }}
-      
-      run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
-
-
-      - name: Store artifact
-
-        uses: actions/upload-artifact@v2
-
-        with:
-
-          name:  app-build
-
-          path: ${{ github_sha }}.tar.gz
-
       
