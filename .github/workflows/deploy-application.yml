@@ -63,6 +63,6 @@ jobs:
 
           name:  app-build
 
-          path: ${{ github.sha }}
+          path: ${{ github.sha }}.tar.gz
 
       
