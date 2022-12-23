@@ -56,3 +56,6 @@ Route::get('testAll', [App\Http\Controllers\PostController::class, 'getAllPosts'
 Route::get('/', function(){
     return view('home');
 })->name('home');
+
+Route::get('get-post-profile/{user_id}', [App\Http\Controllers\PostController::class, 'getPostFromUser']);
+Route::get('get-profile/{user_id}', [App\Http\Controllers\ProfileController::class, 'getProfileFromUser']);

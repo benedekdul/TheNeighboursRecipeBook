@@ -1655,3 +1655,123 @@ h3 {
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
+/* ========== Profile ==========*/
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 80%;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.profile-avatar {
+  margin-right: 20px;
+}
+
+.profile-avatar img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.stats {
+  display: flex;
+  margin-top: 10px;
+}
+
+.stats ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.stats li {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.stats li span {
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.card-header-content p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-options {
+  margin-top: 20px;
+}
+
+.card-content {
+  border-top: 1px solid #eee;
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tabs ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs li {
+  margin-right: 20px;
+}
+
+.tabs li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #999;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.tabs li a:hover,
+.tabs li.is-active a {
+  color: #333;
+}
+
+.tab-grid {
+  border-bottom: 2px solid transparent;
+}
+
+.tab-list {
+  border-bottom: 2px solid #eee;
+}
+
+.tab-grid.is-active {
+  border-bottom: 2px solid #333;
+}
+
+.tab-list.is-active {
+  border-bottom: 2px solid transparent;
+}
+

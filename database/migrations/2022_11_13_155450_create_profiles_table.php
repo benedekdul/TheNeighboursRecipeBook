@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string("username");
+            $table->string("user_id");
             $table->string("bio");
-            $table->integer("post_copunt");
+            $table->integer("post_count");
             $table->integer("follower_count");
             $table->integer("following_count");
             $table->string("profile_picture_path");

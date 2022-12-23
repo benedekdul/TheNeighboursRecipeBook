@@ -3,9 +3,11 @@ import { initial } from 'lodash';
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 //import '../../css/style.css'
-import AddPost from './Create/AddPost';
+import AddPostWrapper from './Create/AddPostWrapper';
 import Feed from './feed/Feed';
 import Header from './Header';
+import Profile from './Profile/Profile';
+import AddPost from './Create/AddPost';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 
@@ -96,8 +98,9 @@ function App() {
                     
                 }
                 
-            </div>
-        </div>
+               </div>
+               </div>
+       
     );
 }
 
