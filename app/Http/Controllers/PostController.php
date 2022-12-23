@@ -49,7 +49,7 @@ class PostController extends Controller
             $request['image']->move(public_path('images'), $fileName);
 
             /* Appending dummy data to the post */
-            $data['user_id'] = 1; //Mock data before authentication is enabled
+            $data['user_id'] = $request['id']; //Mock data before authentication is enabled
             //$data['body'] = "TODO"; // Mock body part of the post until the frontend part is complete ->TODO: Fix in next issue
 
             /* Image data of the post is the path to the image */
