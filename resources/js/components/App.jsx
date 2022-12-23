@@ -39,7 +39,7 @@ function App() {
         //console.log("Post creation hidden " + action);
     }
 
-    const post_posted = arg => {
+    const passActionHandler = arg => {
         actionHandler(arg);
     }
 
@@ -54,6 +54,7 @@ function App() {
                 
                 <Header/>
                 < Profile/>
+                
                </div>
                </div>
        
