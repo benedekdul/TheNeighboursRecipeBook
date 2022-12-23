@@ -1,6 +1,3 @@
-/**
- * This class represents the user.
- */
 class User {
 
     constructor() {
@@ -8,6 +5,7 @@ class User {
     }
 
     init() {
+        this.id = localStorage.getItem('id')
         this.name = localStorage.getItem('userName')
         this.email = localStorage.getItem('userEmail')
         this.loggedIn = JSON.parse(localStorage.getItem('userLoggedIn')) === true;
@@ -16,11 +14,13 @@ class User {
     /**
      *
      * @param data object
+     * @param data.id string
      * @param data.name string
      * @param data.email string
      * @param callback function
      */
     authenticated(data) {
+        localStorage.setItem('id', data.id)
         localStorage.setItem('userName', data.name)
         localStorage.setItem('userEmail', data.email)
         localStorage.setItem('userLoggedIn', true)
@@ -28,6 +28,7 @@ class User {
     }
 
     logout(){
+        localStorage.setItem('id', null)
         localStorage.setItem('userName', null)
         localStorage.setItem('userEmail', null)
         localStorage.setItem('userLoggedIn', false)
@@ -36,7 +37,7 @@ class User {
 
     /**
      *
-     * @return {boolean} True, if the user is logged in. False, otherwise.
+     * @return {boolean}
      */
     isLoggedIn() {
         return Boolean(this.loggedIn) === true
